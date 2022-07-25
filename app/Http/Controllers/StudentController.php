@@ -37,11 +37,10 @@ class StudentController extends Controller
                 $data[] = $nestedData;
             }
         }
-
         $json_data = array(
             "draw"            => intval($request->input('draw')),
-            "recordsTotal"    => $this->studentModel->getStudentsDataWithFilters($request, 'Counts'),
-            "recordsFiltered" => $this->studentModel->getStudentsDataWithFilters($request, 'Filters'),
+            //  "recordsTotal"    => 0,
+            //  "recordsFiltered" => 0,
             "data"            => $data
         );
 

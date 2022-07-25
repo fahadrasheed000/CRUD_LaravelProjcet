@@ -18,28 +18,17 @@ class Student extends Model
         if (!empty($request->post('student_id'))) {
             $getData->where('student_id', $request->post('student_id'));
         }
-
         $getData->orderBy('id', 'ASC');
-        if ($tag == "Normal") {
-            if ($request->length != -1) {
-                $getData->offset($request->start);
-                $getData->limit($request->length);
-            }
-            $originalData = $getData->get();
-            return $originalData;
-        }
-        if ($tag == "Filters" || $tag == "Counts") {
-            $originalData = $getData->get()->count();
-            return  $originalData;
-        }
+        $originalData = $getData->get();
+        return $originalData;
     }
     public function addStudent($request)
     {
         try {
             $data = array(
-                'student_id'         =>       $request->input('student_id'),
-                'name'      =>       $request->input('name'),
-                'address'           =>       $request->input('address')
+                'student_id' =>  $request->input('student_id'),
+                'name'       =>  $request->input('name'),
+                'address'    =>  $request->input('address')
             );
             $Student = Student::create($data);
             return true;
@@ -58,9 +47,9 @@ class Student extends Model
     public function updateStudent($request, $studentID)
     {
         $data = array(
-            'student_id'         =>       $request->input('student_id'),
-            'name'      =>       $request->input('name'),
-            'address'           =>       $request->input('address')
+            'student_id' =>   $request->input('student_id'),
+            'name'       =>   $request->input('name'),
+            'address'    =>   $request->input('address')
         );
         $updateOrder = Student::find($studentID)->update($data);
 
