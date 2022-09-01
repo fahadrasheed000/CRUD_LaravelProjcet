@@ -11,8 +11,8 @@
 Cruds with dynamic datatables.
 
 ## PROJECT Configuration
-Install Composer
-Composer update
-Php artisan migrate
-php artisan db:seed
-Please add .Env file according to the .env.example file
+Install Composer<br>
+Composer update<br>
+Php artisan migrate<br>
+php artisan db:seed<br>
+Please add .Env file according to the .env.example file<br>
